@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Values.namespace }}
+  name: nginx-config-directory
+data:
+  default.conf: |
+    server {
+      listen       80;
+      server_name  _;
+
+      location / {
+        default_type text/html;
+        return       200 "Welcome to ArgoCD Lab v{{ .Values.version }}";
+      }
+    }

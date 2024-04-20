@@ -1,0 +1,11 @@
+version: "0.1.2"
+
+namespace: "argo-lab"
+
+deployment:
+  replicas: 1
+  httpPort: 80
+
+svc:
+  port: 80
+  nodePort: 30001
