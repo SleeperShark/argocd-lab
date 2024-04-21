@@ -1,0 +1,23 @@
+name: ci-test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Yamllint
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_config_filepath: yamllint-config.yaml
+          yamllint_file_or_dir: argo-nginx
+      
+      - name: Helm Lint
+        uses: WyriHaximus/github-action-helm3@v3
+        with:
+          exec: helm lint argo-nginx
