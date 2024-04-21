@@ -18,4 +18,9 @@ data:
         default_type text/html;
         return       200 "This is hello world page from argo-lab!";
       }
+
+      location /ping {
+        default_type text/html;
+        return       200 "PONG!";
+      }
     }
