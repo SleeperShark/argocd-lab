@@ -21,10 +21,10 @@ spec:
           configMap:
             name: nginx-config-directory
       containers:
-      - image: nginx
-        name: nginx
-        ports:
-        - containerPort: {{ .Values.deployment.httpPort }}
-        volumeMounts:
-          - mountPath: /etc/nginx/conf.d
-            name: nginx-config-directory
+        - image: nginx
+          name: nginx
+          ports:
+            - containerPort: {{ .Values.deployment.httpPort }}
+          volumeMounts:
+            - mountPath: /etc/nginx/conf.d
+              name: nginx-config-directory
