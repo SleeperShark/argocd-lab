@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   namespace: {{ .Values.namespace }}
   name: nginx-deployment
+  annotations:
+    configmap.reloader.stakater.com/reload: "nginx-config-directory"
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
